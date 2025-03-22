@@ -1,9 +1,56 @@
+// import { Tabs } from 'expo-router';
+// import React from 'react';
+// import { Platform } from 'react-native';
+
+// import { HapticTab } from '@/components/HapticTab';
+// import { IconSymbol } from '@/components/ui/IconSymbol';
+// import TabBarBackground from '@/components/ui/TabBarBackground';
+// import { Colors } from '@/constants/Colors';
+// import { useColorScheme } from '@/hooks/useColorScheme';
+
+// export default function TabLayout() {
+//   const colorScheme = useColorScheme();
+
+//   return (
+//     <Tabs
+//       screenOptions={{
+//         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+//         headerShown: false,
+//         tabBarButton: HapticTab,
+//         tabBarBackground: TabBarBackground,
+//         tabBarStyle: Platform.select({
+//           ios: {
+//             // Use a transparent background on iOS to show the blur effect
+//             position: 'absolute',
+//           },
+//           default: {},
+//         }),
+//       }}>
+//       <Tabs.Screen
+//         name="index"
+//         options={{
+//           title: 'Home',
+//           tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+//         }}
+//       />
+//       <Tabs.Screen
+//         name="explore"
+//         options={{
+//           title: 'Explore',
+//           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+//         }}
+//       />
+//     </Tabs>
+//   );
+// }
+
+
 import { Tabs } from 'expo-router';
 import React from 'react';
 import { Platform } from 'react-native';
+import { Ionicons } from '@expo/vector-icons'; // Import the icon library
 
 import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
@@ -26,18 +73,39 @@ export default function TabLayout() {
           default: {},
         }),
       }}>
+      {/* Home Tab */}
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color }) => <Ionicons name="home" size={28} color={color} />,
         }}
       />
+
+      {/* Explore Tab */}
       <Tabs.Screen
         name="explore"
         options={{
           title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ color }) => <Ionicons name="map" size={28} color={color} />,
+        }}
+      />
+
+      {/* Family Tab */}
+      <Tabs.Screen
+        name="family"
+        options={{
+          title: 'Family',
+          tabBarIcon: ({ color }) => <Ionicons name="people" size={28} color={color} />,
+        }}
+      />
+
+      {/* Memory Journal Tab */}
+      <Tabs.Screen
+        name="memory-journal"
+        options={{
+          title: 'Memory Journal',
+          tabBarIcon: ({ color }) => <Ionicons name="book" size={28} color={color} />,
         }}
       />
     </Tabs>
